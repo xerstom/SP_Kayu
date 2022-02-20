@@ -2,11 +2,13 @@ package com.boulec.kayu.models;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import lombok.Data;
 
 @Data
 @Entity
+@Table(name="rule")
 public class Rule {
 
     @Id
