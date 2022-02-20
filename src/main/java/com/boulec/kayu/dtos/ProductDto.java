@@ -15,5 +15,6 @@ public class ProductDto {
         this.nutritionScore = nutritionScore;
 
     }
+
     public ProductDto() {}
 }

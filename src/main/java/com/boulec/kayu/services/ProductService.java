@@ -15,11 +15,11 @@ import java.net.URI;
 @Service
 public class ProductService {
 
-    private final OFFRequester requester;
+    @Autowired
+    private OFFRequester requester;
 
-    public ProductService() {
-        this.requester = new OFFRequester();
-    }
+    @Autowired
+    private RestTemplate restTemplate;
 
     public ProductDto getOne(String id) {
         OFFProduct product = this.requester.request(id);

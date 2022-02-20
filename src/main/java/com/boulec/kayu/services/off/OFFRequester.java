@@ -41,12 +41,11 @@ public class OFFRequester {
 
     public OFFProduct request(String id) {
         String url = buildUrl(id);
-        System.out.println(url);
+
         try{
             URI uri = new URI(url);
             ResponseEntity<OFFResponse> result = restTemplate.getForEntity(uri, OFFResponse.class);
             OFFResponse response = result.getBody();
-            System.out.println(response);
 
             return response.product;
         }
