@@ -1,20 +1,15 @@
 package com.boulec.kayu.dtos;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
 public class ProductDto {
 
-    int id;
     String barCode;
     String name;
     int nutritionScore;
 
-    public ProductDto(int id, String barCode, String name, int nutritionScore) {
-        this.id = id;
+    public ProductDto(String barCode, String name, int nutritionScore) {
         this.barCode = barCode;
         this.name = name;
         this.nutritionScore = nutritionScore;
