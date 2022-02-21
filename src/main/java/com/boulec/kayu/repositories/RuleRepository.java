@@ -1,13 +1,17 @@
 package com.boulec.kayu.repositories;
 
 import com.boulec.kayu.models.Rule;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-@Repository
-public abstract class RuleRepository implements JpaRepository <Rule, Long> {
+import java.util.List;
 
-    @Query("SELECT DISTINCT points FROM rule WHERE ?2 < 5")
-    public abstract int getPoints(String name, float value);
+@Repository
+public  interface RuleRepository extends JpaRepository <Rule, Long> {
+
+    @Query("SELECT points FROM rule WHERE min_bound <= ?2 AND name = ?1")
+    List<Integer> findTop1Points(String name, float value, Pageable pageable);
+
 }
