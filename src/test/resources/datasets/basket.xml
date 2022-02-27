@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <BASKET mail="test@gmail.com" bar_code="7622210449283" />
+    <BASKET mail="test@gmail.com" bar_code="7613036669146" />
+    <PRODUCT bar_code="7622210449283" name="BISCUITS FOURRÉS (35%) PARFUM CHOCOLAT" nutrition_score="10" classe="Mangeable" color="yellow" />
+    <PRODUCT bar_code="7613036669146" name="Céréales prêtes à consommer biologiques" nutrition_score="0" classe="Bon" color="light green" />
+</dataset>

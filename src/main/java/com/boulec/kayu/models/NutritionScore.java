@@ -7,8 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Data
-@Entity(name="nutrition_score")
-@Table(name="nutrition_score")
+@Entity(name = "nutrition_score")
+@Table(name = "nutrition_score")
 public class NutritionScore {
 
     @Id

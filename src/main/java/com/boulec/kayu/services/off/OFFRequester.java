@@ -1,6 +1,5 @@
 package com.boulec.kayu.services.off;
 
-import com.boulec.kayu.configurations.RestTemplateClass;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -10,8 +9,8 @@ import java.net.URI;
 
 @Component
 public class OFFRequester {
-    static final String baseUrl = "https://fr.openfoodfacts.org/api/v0/produit/";
-    static final String[] fields = {
+    static private final String baseUrl = "https://fr.openfoodfacts.org/api/v0/produit/";
+    static private final String[] fields = {
             "id",
             "generic_name_fr",
             "energy_100g",
@@ -21,7 +20,6 @@ public class OFFRequester {
             "fiber_100g",
             "proteins_100g"
     };
-
     private final String reqFields;
 
     @Autowired
@@ -31,7 +29,7 @@ public class OFFRequester {
         this.reqFields = buildFields();
     }
 
-    private String buildUrl(String id) {
+    private String buildUrl(Long id) {
         return baseUrl + id + ".json" + reqFields;
     }
 
@@ -39,17 +37,16 @@ public class OFFRequester {
         return "?fields=" + String.join(",", fields);
     }
 
-    public OFFProduct request(String id) {
+    public OFFProduct request(Long id) {
         String url = buildUrl(id);
 
-        try{
+        try {
             URI uri = new URI(url);
             ResponseEntity<OFFResponse> result = restTemplate.getForEntity(uri, OFFResponse.class);
             OFFResponse response = result.getBody();
 
             return response.product;
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.err.println(e);
         }
         return null;

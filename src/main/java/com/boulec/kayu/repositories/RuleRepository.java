@@ -9,9 +9,9 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public  interface RuleRepository extends JpaRepository <Rule, Long> {
+public interface RuleRepository extends JpaRepository<Rule, Long> {
 
     @Query("SELECT points FROM rule WHERE min_bound <= ?2 AND name = ?1")
-    List<Integer> findTop1Points(String name, float value, Pageable pageable);
+    List<Integer> getRulePoint(String name, float value, Pageable pageable);
 
 }
